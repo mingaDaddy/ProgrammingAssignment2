@@ -29,7 +29,7 @@ makeCacheMatrix <- function(x = matrix()) {
         setMatrixInv <- function(inverseMatrix) invMatrix <<- inverseMatrix 
         
         # 4. getMatrixInv
-        getMatrixInv = function() invMatrix
+        getMatrixInv <- function() invMatrix
         
         # The output of the function is a list of 4 elements which will be used in our cacheSolve function
         list(setMatrix=setMatrix, getMatrix=getMatrix, setMatrixInv=setMatrixInv, getMatrixInv=getMatrixInv)
@@ -57,8 +57,8 @@ cacheSolve <- function(x, ...) {
         
         # If the function reaches this, that means that the variable invCacheSolve was empty and, therefore,
         # R has to calculare it
-        data = x$getMatrix()
-        invCacheSolve = solve(data, ...)
+        data <- x$getMatrix()
+        invCacheSolve <- solve(data, ...)
         
         # Defines the inverse of the matrix using the function setMatrixInv defined in the scope
         # of our makeCacheMatrix() function
@@ -99,25 +99,25 @@ testCache <- function(elements=250000) {
         cacheMatrix <- makeCacheMatrix(testRMatrix)
 
         # Make use of Sys.time() to simulate a stopwatch - Actual time is?       
-        sTime = Sys.time()
+        sTime <- Sys.time()
         
         # Call our cacheSolve() function. As the inverse has not been calculated, it will require some time
         # Time runs, tick tack tick tack...
         cacheSolve(cacheMatrix)
  
         # Make use of Sys.time() to simulate a stopwatch - Actual time is? (cacheSolve() is ended)         
-        eTime = Sys.time()
-        timeSpent = eTime - sTime
+        eTime <- Sys.time()
+        timeSpent <- eTime - sTime
         # Output time difference
         print(timeSpent)
 
         # Make use of Sys.time() to simulate a stopwatch - Actual time is?
-        sTime = Sys.time()
+        sTime <- Sys.time()
         # Call our cacheSolve() function. As the inverse is cached, it will not require extra time
         cacheSolve(cacheMatrix)
         # Make use of Sys.time() to simulate a stopwatch - Actual time is? (cacheSolve() is ended)         
-        eTime = Sys.time()
-        timeSpent = eTime - sTime
+        eTime <- Sys.time()
+        timeSpent <- eTime - sTime
         # Output time difference
         print(timeSpent)
         
