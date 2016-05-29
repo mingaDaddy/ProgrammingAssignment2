@@ -122,4 +122,17 @@ testCache <- function(elements=250000) {
         print(timeSpent)
         
         options(scipen=0)
+        
+        # SOME EXAMPLES:
+        # > testCache(1000)
+        # [1] "Generating square invertible matrix with 1024 elements"
+        # Time difference of 0.07600403 secs
+        # Inverse already calculated. Getting the cached data
+        # Time difference of 0 secs
+        
+        # > testCache(100000)
+        # [1] "Generating square invertible matrix with 99856 elements"
+        # Time difference of 0.09700608 secs
+        # Inverse already calculated. Getting the cached data
+        # Time difference of 0.0009999275 secs
 }
